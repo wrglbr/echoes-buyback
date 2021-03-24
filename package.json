@@ -1,9 +1,9 @@
 {
-  "name": "quasar",
-  "version": "0.0.1",
-  "description": "A Quasar Framework app",
-  "productName": "Quasar App",
-  "author": "add.your.email@here.com",
+  "name": "echoes-buyback",
+  "version": "0.1.0",
+  "description": "EVE Echoes Corporation Ore Buyback Program App",
+  "productName": "EchoesBuyback",
+  "author": "offerhero@gmail.com",
   "private": true,
   "scripts": {
     "start": "quasar dev",
