@@ -1,5 +1,5 @@
 {
-  "name": "vue",
+  "name": "echoes-buyback",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "@vue/cli-plugin-babel": "4.1.1",
-    "vue": "^2.6.11"
+    "axios": "0.21.1",
+    "vue": "^2.6.11",
+    "vue-router": "3.5.1",
+    "vuex": "3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-eslint": "4.1.1",
@@ -48,5 +51,5 @@
     "vuejs",
     "starter"
   ],
-  "description": "Vue.js example starter project"
+  "description": "EVE Echoes Corporation Ore Buyback APp"
 }
