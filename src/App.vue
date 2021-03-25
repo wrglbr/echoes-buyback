@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" width="25%" />
-    <Home msg="Welcome!" />
+    <Header />
+    <Home msg="Welcome!" corp="BAND" />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Home from "@/components/Home";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default {
   name: "App",
   components: {
+    Header,
     Home,
+    Footer,
   },
 };
 </script>
@@ -24,5 +29,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  max-width: 1200px;
 }
 </style>

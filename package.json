@@ -1,5 +1,5 @@
 {
-  "name": "echoes-buyback",
+  "name": "echoes-buyback-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -46,10 +46,6 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "keywords": [
-    "vue",
-    "vuejs",
-    "starter"
-  ],
-  "description": "EVE Echoes Corporation Ore Buyback APp"
+  "keywords": [],
+  "description": ""
 }
