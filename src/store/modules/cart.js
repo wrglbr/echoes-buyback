@@ -48,7 +48,7 @@ const actions = {
   addItemToCart({ state, commit }, item) {
     commit("setCheckoutStatus", null);
     if (item.inventory > 0) {
-      const cartItem = state.items.find((item) => item.id === item.id);
+      const cartItem = state.items.find((item) => item.id);
       if (!cartItem) {
         commit("pushItemToCart", { id: item.id });
       } else {
