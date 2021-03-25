@@ -10,22 +10,22 @@ const getters = {};
 
 // actions
 const actions = {
-  getAllProducts({ commit }) {
-    shop.getProducts((products) => {
-      commit("setProducts", products);
+  getAllItems({ commit }) {
+    shop.getItems((items) => {
+      commit("setItems", items);
     });
   }
 };
 
 // mutations
 const mutations = {
-  setProducts(state, products) {
-    state.all = products;
+  setItems(state, items) {
+    state.all = items;
   },
 
-  decrementProductInventory(state, { id }) {
-    const product = state.all.find((product) => product.id === id);
-    product.inventory--;
+  decrementItemInventory(state, { id }) {
+    const item = state.all.find((item) => item.id === id);
+    item.inventory--;
   }
 };
 

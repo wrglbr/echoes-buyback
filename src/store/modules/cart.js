@@ -11,33 +11,31 @@ const state = () => ({
 const getters = {
   cartProducts: (state, getters, rootState) => {
     return state.items.map(({ id, quantity }) => {
-      const product = rootState.products.all.find(
-        (product) => product.id === id
-      );
+      const item = rootState.items.all.find((item) => item.id === id);
       return {
-        title: product.title,
-        price: product.price,
+        title: item.title,
+        price: item.price,
         quantity
       };
     });
   },
 
   cartTotalPrice: (state, getters) => {
-    return getters.cartProducts.reduce((total, product) => {
-      return total + product.price * product.quantity;
+    return getters.cartItems.reduce((total, item) => {
+      return total + item.price * item.quantity;
     }, 0);
   }
 };
 
 // actions
 const actions = {
-  checkout({ commit, state }, products) {
+  checkout({ commit, state }, items) {
     const savedCartItems = [...state.items];
     commit("setCheckoutStatus", null);
     // empty cart
     commit("setCartItems", { items: [] });
-    shop.buyProducts(
-      products,
+    shop.buyItems(
+      items,
       () => commit("setCheckoutStatus", "successful"),
       () => {
         commit("setCheckoutStatus", "failed");
@@ -47,21 +45,17 @@ const actions = {
     );
   },
 
-  addProductToCart({ state, commit }, product) {
+  addItemToCart({ state, commit }, item) {
     commit("setCheckoutStatus", null);
-    if (product.inventory > 0) {
-      const cartItem = state.items.find((item) => item.id === product.id);
+    if (item.inventory > 0) {
+      const cartItem = state.items.find((item) => item.id === item.id);
       if (!cartItem) {
-        commit("pushProductToCart", { id: product.id });
+        commit("pushItemToCart", { id: item.id });
       } else {
         commit("incrementItemQuantity", cartItem);
       }
       // remove 1 item from stock
-      commit(
-        "products/decrementProductInventory",
-        { id: product.id },
-        { root: true }
-      );
+      commit("items/decrementItemInventory", { id: item.id }, { root: true });
     }
   }
 };
