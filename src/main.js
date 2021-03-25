@@ -1,34 +1,16 @@
 import Vue from "vue";
-import App from "./App.vue";
-import store from "./store";
 import VueRouter from "vue-router";
-import Home from "@/components/Home";
-import CreateOrder from "@/components/CreateOrder";
-import ViewOrder from "@/components/ViewOrder";
-Vue.config.productionTip = false;
+import routes from "./router";
+import store from "./store";
+import App from "./App.vue";
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  mode: "history",
-  base: ".",
-  routes: [
-    { path: "/", component: Home },
-    { path: "/create", component: CreateOrder },
-    { path: "/view/:id", component: ViewOrder }
-  ]
+  routes,
+  mode: "history"
 });
-
-router.beforeEach((to, from, next) => {
-  if (to.query.delay) {
-    setTimeout(() => {
-      next();
-    }, Number(to.query.delay));
-  } else {
-    next();
-  }
-});
-
+Vue.config.productionTip = false;
 new Vue({
   router,
   el: "#app",
@@ -43,15 +25,5 @@ new Vue({
       loading: true,
       error: false
     };
-  },
-  methods: {
-    navigateAndIncrement() {
-      const increment = () => this.n++;
-      if (this.$route.path === "/") {
-        this.$router.push("/foo", increment);
-      } else {
-        this.$router.push("/", increment);
-      }
-    }
   }
 }).$mount("#app");
