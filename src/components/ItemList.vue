@@ -1,9 +1,9 @@
 <template>
   <ul>
-    <li v-for="product in products" :key="product.id">
-      {{ product.title }} - {{ product.price | currency }}
+    <li v-for="item in items" :key="item.id">
+      {{ item.title }} - {{ item.price | currency }}
       <br />
-      <button :disabled="!product.inventory" @click="addProductToCart(product)">
+      <button :disabled="!item.inventory" @click="addItemToCart(item)">
         Add to cart
       </button>
     </li>
@@ -15,11 +15,11 @@ import { mapState, mapActions } from "vuex";
 
 export default {
   computed: mapState({
-    products: (state) => state.products.all,
+    items: (state) => state.items.all,
   }),
-  methods: mapActions("cart", ["addProductToCart"]),
+  methods: mapActions("cart", ["addItemToCart"]),
   created() {
-    this.$store.dispatch("products/getAllProducts");
+    this.$store.dispatch("items/getAllItems");
   },
 };
 </script>

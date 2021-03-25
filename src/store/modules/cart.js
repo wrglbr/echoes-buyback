@@ -9,7 +9,7 @@ const state = () => ({
 
 // getters
 const getters = {
-  cartProducts: (state, getters, rootState) => {
+  cartItems: (state, getters, rootState) => {
     return state.items.map(({ id, quantity }) => {
       const item = rootState.items.all.find((item) => item.id === id);
       return {
